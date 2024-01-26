@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import {MoneyCounter} from './components/MoneyCounter'
+import { useState, useEffect } from 'react'
+import { initScreenBalanceAndAtmBills, withdrawMoney} from './api/apiServices'
+import { Note } from './components/Note'
 
 function App() {
+  const [withdrawAmount,setWithdrawAmount] = useState(Number)
+  const [accountData,setAccountData] = useState(Number)
+  const [cashReceived,setcashReceived] = useState({})
+  const [initialBills,setinitialBills] = useState({})
+
+  const handleClik = async () => {
+    let response = await withdrawMoney(withdrawAmount)
+    setcashReceived(response.receividNotes)
+    setinitialBills(response.newCashQtd)
+    setAccountData(response.newBalance)
+    console.log('dddddd',response.receividNotes)
+  }
+
+  const initScreen = async () => {
+    try{
+      const response = await initScreenBalanceAndAtmBills()
+      setAccountData(response.initBalance)
+      setinitialBills(response.initAtmBills)
+    }catch(e){
+        console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    initScreen()
+  },[])
+    
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="atm-interface">
+        
+        <div className="atm-screen">
+            <h1>Saldo atual :</h1>
+            <h2>{accountData} </h2>   
+        </div>
+
+        <div className="withdraw-area">
+          <input type="number" onChange={event => setWithdrawAmount(event.target.value)}/>
+        </div>      
+
+        <div className="withdraw-button-area">
+            <button className="withdrawBtn" onClick={() => handleClik()}>saque</button>
+        </div>
+
+        <div className="withdraw-money">
+            {Object.entries(cashReceived).map((key, index) => (
+                <div className="notes-img" key={index}>
+                    {(key[1] !== 0) && (
+                      <Note quantity={key[1]} notetype={key[0]}/>
+                    )}
+                </div>
+            ))}
+        </div>
+      </div>
+
+      <MoneyCounter atmBillsData={initialBills} />
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

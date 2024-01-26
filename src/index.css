@@ -1,3 +1,8 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,107 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(0, 0, 85)!important;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.app {
+    display: flex;  
+    justify-content: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    flex-flow: row;
+}
+
+.atm-interface {
+    display: flex;  
+    flex-flow: column;
+    align-items: center;
+    border: 2px rgb(120, 121, 120);
+    padding: 1em;
+    gap: 1em;
+    border-radius: 5% 0% 0% 5%;
+    background-color: #27566b;
+    width: 60%;
+}
+
+.atm-screen {
+    border: white;
+    border-radius: 6%;
+    padding: 10px;
+    background-color: white;
+    margin: 30px 0px;
+    text-align: center;
+    color: #730606;
+    width: 50%;
+}
+
+.withdraw-money{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 16px;
+    gap: 5px
+}
+.form {
+    padding: 6px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.form input {
+    border: none;
+    outline-color: white;
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card{
+    display: flex;
+    text-align: center;
+    flex-flow: column;
+    color: white;
+    font-weight: 600;
+    font-size: x-large;
+}
+.note-img {
+    width: 90px;
+}
+
+.cash-img {
+    transform: rotate(90deg);
+    width: 60px;
+}
+
+.counter-card {
+    text-align: center;
+    flex-flow: row;
+    color: white;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.money-counter {
+    width: 30%;
+    display: flex;
+    flex-flow: column;
+    background-color: #148899;
+    border-radius: 0 5% 5% 0;
+    padding: 1em;
 }
