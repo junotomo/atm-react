@@ -47,7 +47,7 @@ function App() {
         </div>      
 
         <div className="withdraw-button-area">
-            <button className="withdrawBtn" onClick={() => handleClik()}>saque</button>
+            <button className="withdraw-btn" onClick={() => handleClik()}>saque</button>
         </div>
 
         <div className="withdraw-money">

@@ -114,3 +114,21 @@ input::-webkit-inner-spin-button {
     border-radius: 0 5% 5% 0;
     padding: 1em;
 }
+
+.withdraw-btn {
+  padding: 1em 1.5em;
+  border: none;
+  border-radius: 8%;
+  font-weight: 600;
+  background-color: #b36100;
+  color: white;
+}
+
+.withdraw-area input {
+  padding: 0.5em;
+  border-radius: 5%;
+  border: none;
+  font-size:small;
+  height: 3em;
+  text-align-last: center;
+}
