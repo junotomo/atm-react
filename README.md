@@ -1,4 +1,4 @@
-# Projeto svelte atm
+# Projeto react-atm
 
 Criado junto com  o __atm-projeto__, é a parte do front end do projeto portanto deve se rodar com o projeto mencionado.
 
@@ -12,7 +12,7 @@ REACT_APP_PUBLIC_ATM_NOTES_NUMBER=http://localhost:3000/atm/atmNotesNumber
 
 ```
 
-Instalar as dependencioas com o comando  `npm install` (or `npm install` or `yarn`), e roddar o programa:
+Instalar as dependencioas com o comando  `npm install` (or `npm install` or `yarn`), e rodar o programa:
 
 ```bash
 npm run dev
