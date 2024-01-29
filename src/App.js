@@ -15,7 +15,6 @@ function App() {
     setcashReceived(response.receividNotes)
     setinitialBills(response.newCashQtd)
     setAccountData(response.newBalance)
-    console.log('dddddd',response.receividNotes)
   }
 
   const initScreen = async () => {

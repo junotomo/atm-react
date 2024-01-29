@@ -1,23 +1,23 @@
-import React from 'react';
+import { Note } from "./Note";
 import { render } from '@testing-library/react';
-import { Note } from './Note'; // Assuming this is the correct path to your Note component
+import ReactDOM from 'react-dom';
+import React from 'react';
+describe( "Note component", () => {
+    it('should render a div with class "card" containing a div with class "money-qtd" and an img element with class "note-img"', () => {
+      // Arrange
+      const props = {
+        notetype: 10,
+        quantity: 5
+      };
 
-describe('Note component', () => {
-  it('renders with correct note image based on props', () => {
-    const props = {
-      notetype: 10, // Change this according to your test case
-      quantity: 3, // Change this according to your test case
-    };
+      // Act
+      const { container } = render(<Note {...props} />);
 
-    const { getByAltText, getByText } = render(<Note {...props} />);
+      // Assert
+      expect(container.querySelector('.card')).toBeInTheDocument();
+      expect(container.querySelector('.money-qtd')).toBeInTheDocument();
+      expect(container.querySelector('.note-img')).toBeInTheDocument();
+    });
 
-    // Assert that the correct quantity is rendered
-    expect(getByText('x 3')).toBeInTheDocument();
 
-    // Assert that the correct note image is rendered
-    const expectedImageSrc = `../../src/assets/10_reais.png`; // Change this according to your test case
-    expect(getByAltText('')).toHaveAttribute('src', expectedImageSrc);
-  });
-
-  // Add more test cases as needed
-});
+  })

@@ -10,10 +10,9 @@ export const Note = (props) => {
     let noteImage = ""
     const noteImgArray = Object.entries(noteImg)
 
-    for (const noteValue of noteImgArray) {
-        if (noteValue[1] == props.notetype) noteImage = noteValue[0]
-    }
-
+    const matchingNote = noteImgArray.find(noteValue => noteValue[1] === props.notetype);
+    if (matchingNote) noteImage = matchingNote[0];
+    
     return (            
         <div className="card">              
            <div className="money-qtd"> x {props.quantity} </div>
