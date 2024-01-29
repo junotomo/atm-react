@@ -5,7 +5,7 @@ Criado junto com  o __atm-projeto__, é a parte do front end do projeto portanto
 
 ## Para rodar
 
-Criar um arquivo .env no diretório raís do projeto 
+Criar um arquivo .env no diretório raiz do projeto 
 ```
 REACT_APP_PUBLIC_WITHDRAWL=http://localhost:3000/atm/withdrawal
 REACT_APP_PUBLIC_BALANCE_URL=http://localhost:3000/atm/balance
