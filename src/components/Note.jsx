@@ -16,7 +16,7 @@ export const Note = (props) => {
 
     return (            
         <div className="card">              
-           <div className="money-qtd"> x {props.quantity}   </div>
+           <div className="money-qtd"> x {props.quantity} </div>
            <img className="note-img" src={require("../../src/assets/"+noteImage+".png")} alt="" />
         </div>
     )
